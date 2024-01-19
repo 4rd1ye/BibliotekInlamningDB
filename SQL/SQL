@@ -1,0 +1,73 @@
+SQL
+
+CREATE DATABASE library;
+
+USE library;
+
+CREATE TABLE user
+    (id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    phone VARCHAR(15)
+);
+
+INSERT INTO user (username, password, email, phone) values
+    ("Test","1234","test@gmail.com","+777777777");
+
+
+CREATE TABLE books
+    (id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255),
+    available BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE loans
+    (id INT PRIMARY KEY AUTO_INCREMENT,
+    userId INT NOT NULL,
+    bookId INT NOT NULL,
+    loanDate DATE,
+    returnDate DATE,
+    FOREIGN KEY (userId) REFERENCES user(id),
+    FOREIGN KEY (bookId) REFERENCES books(id)
+);
+
+INSERT INTO loans (userId, bookId, loanDate, returnDate) values (1,1,now(),'2024-01-29');
+
+SELECT count(1) FROM user WHERE username = 'ArdiFetiu' AND password = '12345678';
+
+SELECT * FROM user;
+SELECT * FROM books;
+SELECT * FROM loans;
+
+INSERT INTO books (title, author, available) VALUES
+('The Great Gatsby', 'F. Scott Fitzgerald', false),
+('To Kill a Mockingbird', 'Harper Lee', false),
+('1984', 'George Orwell', false),
+('Pride and Prejudice', 'Jane Austen', false),
+('The Catcher in the Rye', 'J.D. Salinger', false),
+('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', false),
+('The Hobbit', 'J.R.R. Tolkien', false),
+('The Da Vinci Code', 'Dan Brown', false),
+('The Hunger Games', 'Suzanne Collins', false),
+('The Lord of the Rings', 'J.R.R. Tolkien', false),
+('The Shining', 'Stephen King', false),
+('Brave New World', 'Aldous Huxley', false),
+('The Alchemist', 'Paulo Coelho', false),
+('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', false),
+('The Girl with the Dragon Tattoo', 'Stieg Larsson', false),
+('Gone with the Wind', 'Margaret Mitchell', false),
+('The Chronicles of Narnia', 'C.S. Lewis', false),
+('The Road', 'Cormac McCarthy', false),
+('The Kite Runner', 'Khaled Hosseini', false),
+('Moby-Dick', 'Herman Melville', false),
+('The Grapes of Wrath', 'John Steinbeck', false),
+('The Great Expectations', 'Charles Dickens', false),
+('The Count of Monte Cristo', 'Alexandre Dumas', false),
+('Crime and Punishment', 'Fyodor Dostoevsky', false),
+('One Hundred Years of Solitude', 'Gabriel García Márquez', false),
+('The War and Peace', 'Leo Tolstoy', false),
+('Wuthering Heights', 'Emily Brontë', false),
+('Frankenstein', 'Mary Shelley', false),
+('The Picture of Dorian Gray', 'Oscar Wilde', false);
