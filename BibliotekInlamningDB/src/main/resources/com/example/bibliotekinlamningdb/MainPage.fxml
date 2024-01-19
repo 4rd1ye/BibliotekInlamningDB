@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bibliotekinlamningdb.LibraryController">
+   <top>
+      <BorderPane prefHeight="98.0" prefWidth="700.0" style="-fx-background-color: lightgreen;" BorderPane.alignment="CENTER">
+         <center>
+            <Label prefHeight="37.0" prefWidth="137.0" text="Bibliotek" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="555.0" prefWidth="700.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="searchButtonTitle" layoutX="319.0" layoutY="273.0" mnemonicParsing="false" onAction="#searchBooksByTitle" style="-fx-background-color: lightgreen;" text="Sök titel" />
+             <Button fx:id="searchButtonAuthor" layoutX="209.0" layoutY="273.0" mnemonicParsing="false" onAction="#searchBooksByAuthor" style="-fx-background-color: lightgreen;" text="Sök författare" />
+             <TextField fx:id="searchString" layoutX="15.0" layoutY="276.0" prefHeight="26.0" prefWidth="187.0" />
+            <TableView fx:id="bookTable" layoutX="15.0" layoutY="310.0" prefHeight="200.0" prefWidth="388.0">
+              <columns>
+                <TableColumn fx:id="columnId" prefWidth="45.0" text="Id" />
+                <TableColumn fx:id="columnTitle" prefWidth="121.0" text="Titel" />
+                  <TableColumn fx:id="columnAuthor" prefWidth="163.0" text="Författare" />
+                  <TableColumn fx:id="columnAvailable" prefWidth="58.0" text="Lånad" />
+              </columns>
+            </TableView>
+            <TextField fx:id="bookIdText" layoutX="595.0" layoutY="368.0" prefHeight="26.0" prefWidth="91.0" />
+            <Button fx:id="loanBookButton" layoutX="414.0" layoutY="366.0" mnemonicParsing="false" onAction="#loanBook" prefHeight="30.0" prefWidth="174.0" style="-fx-background-color: lightgreen;" text="Låna book med ID:" />
+            <Label layoutX="203.0" layoutY="21.0" text="ID" />
+            <TextField fx:id="idText" layoutX="14.0" layoutY="17.0" prefHeight="26.0" prefWidth="173.0" />
+            <Label layoutX="199.0" layoutY="56.0" text="Användarnamn" />
+            <TextField fx:id="usernameText" layoutX="14.0" layoutY="52.0" prefHeight="26.0" prefWidth="173.0" />
+            <TextField fx:id="passwordText" layoutX="14.0" layoutY="83.0" prefHeight="26.0" prefWidth="173.0" />
+            <Label layoutX="199.0" layoutY="87.0" prefHeight="18.0" prefWidth="90.0" text="Lösenord" />
+            <TextField fx:id="emailText" layoutX="14.0" layoutY="115.0" prefHeight="26.0" prefWidth="173.0" />
+            <Label layoutX="199.0" layoutY="119.0" prefHeight="18.0" prefWidth="90.0" text="Email" />
+            <TextField fx:id="phoneText" layoutX="14.0" layoutY="144.0" prefHeight="26.0" prefWidth="173.0" />
+            <Label layoutX="199.0" layoutY="148.0" prefHeight="18.0" prefWidth="90.0" text="Mobil nr" />
+            <Button fx:id="showUserInfoButton" layoutX="8.0" layoutY="194.0" mnemonicParsing="false" onAction="#showUserInfo" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: lightgreen;" text="Visa dina uppgifter" />
+            <Button fx:id="updateUserButton" layoutX="169.0" layoutY="194.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" text="Uppdatera info" />
+            <TableView fx:id="loanedBooksTable" layoutX="316.0" layoutY="28.0" prefHeight="200.0" prefWidth="373.0">
+               <columns>
+                  <TableColumn fx:id="columnBookloaned" prefWidth="105.0" text="Book ID" />
+                  <TableColumn fx:id="columnLoanDate" prefWidth="135.0" text="Loan Date" />
+                  <TableColumn fx:id="columnReturnDate" prefWidth="132.0" text="Return Date" />
+               </columns>
+            </TableView>
+            <Button fx:id="returnBookButton" layoutX="414.0" layoutY="411.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="30.0" prefWidth="174.0" style="-fx-background-color: lightgreen;" text="Returnera book med ID:" />
+            <TextField fx:id="bookIdTextReturn" layoutX="595.0" layoutY="413.0" prefHeight="26.0" prefWidth="91.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
